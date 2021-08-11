@@ -1,11 +1,79 @@
 {
   "store.home": { 
-    "blocks": ["flex-layout.row", 
+    "blocks": ["stack-layout#cta","flex-layout.row", 
     "slider-layout#home", 
     "responsive-layout.desktop#desktop",
     "responsive-layout.mobile#mobile", 
-    "tab-layout" ]
+    "tab-layout", 
+    "modal-trigger#first", "list-context.product-list"]
      
+  },
+  
+  "stack-layout#cta": {
+   "children": [
+     "image#cta",
+     "link#cta"
+   ]
+ },
+
+ "image#cta": {
+   "props": {
+     "blockClass": "cover",
+     "width": "100%",
+     "height": 400,
+     "src": "https://appliancetheme.vtexassets.com/assets/app/src/appliancecat___1b7592b49667c6a89203a0997e06bc87.jpg"
+   }
+ },
+ 
+ "link#cta": {
+   "props": {
+     "displayMode": "button",
+     "buttonProps": {
+       "variant": "primary",
+       "size": "large"
+     },
+     "href": "/washer",
+     "label": "Check these awesome discounts"
+   }
+ }, 
+  
+  "list-context.product-list": {
+   "blocks": ["product-summary.shelf"],
+   "children": ["slider-layout"]
+
+ },
+ "product-summary.shelf": {
+   "children": [
+     "modal-trigger#quickview",
+     "product-summary-name",
+     "product-selling-price"
+   ]
+ },
+ 
+ "modal-trigger#quickview": {
+   "children": ["product-summary-image", "modal-layout#quickview"]
+ },
+  
+  "modal-layout#quickview": {
+   "children": [
+     "product-summary-name",
+     "product-images",
+     "product-summary-sku-selector",
+     "product-summary-quantity",
+     "add-to-cart-button"
+   ]
+ },
+  
+  "modal-trigger#first": {
+    "children": [
+      "rich-text#trigger"
+    ]
+  },
+  
+  "rich-text#trigger": {
+    "props": {
+      "text": "CLICK ME"
+    }
   },
 
   "tab-layout": {
@@ -15,6 +83,25 @@
   ]
 }, 
 
+ "modal-trigger#first": {
+    "children": [
+      "rich-text#trigger",
+     "modal-layout#first"
+    ]
+  },
+  
+ "modal-layout#first": {
+   "children": [
+     "rich-text#hello"
+   ]
+ },
+ 
+ "rich-text#hello": {
+   "props": {
+     "text": "Hello"
+   }
+ },
+  
 "tab-list": {
   "children": [
     "tab-list.item#1",
@@ -54,6 +141,13 @@
   }
 }, 
 
+"tab-content": {
+  "children": [
+    "tab-content.item#1",
+    "tab-content.item#2"
+    ]
+},
+
 "tab-content.item#1": {
   "children": [
     "rich-text#1"
@@ -73,13 +167,20 @@
 },  
 
 "rich-text#1": {
+ "props": {
+    "text": "Área do conteúdo da tab-list.item com  tabId = majorAppliances",
+    "textPosition": "CENTER",
+    "font": "t-heading-3"
+ }
+},
+
+"rich-text#2": {
   "props": {
-    "text": "Texto para Major Appliances",
+    "text": "Área do conteúdo da tab-list.item com  tabId = electronics",
     "textPosition": "CENTER",
     "font": "t-heading-3"
   }
 },
-
 
   "responsive-layout.desktop#desktop": {
   "children": ["rich-text#desktop", "image#desktop"]
